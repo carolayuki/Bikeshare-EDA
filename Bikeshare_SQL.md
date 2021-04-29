@@ -10,9 +10,9 @@ A bike-sharing company (DivvyBikes) requested a report on their trends and bike 
 
 ***Answer:*** The highlighted section is how many trips there was in each month from years 2017 - 2019.
 
-![Bikeshare%20EDA%20PostgreSQL%200421ab21c12647ef9a514ff9e21844e8/Untitled.png](Bikeshare%20EDA%20PostgreSQL%200421ab21c12647ef9a514ff9e21844e8/Untitled.png)
+![Trip Graph](https://i.imgur.com/N3Q47VD.png)
+![Trip](https://i.imgur.com/mtZOHVd.png)
 
-![Bikeshare%20EDA%20PostgreSQL%200421ab21c12647ef9a514ff9e21844e8/Untitled%201.png](Bikeshare%20EDA%20PostgreSQL%200421ab21c12647ef9a514ff9e21844e8/Untitled%201.png)
 
 ***SQL Method:***
     1. Union all years for Baywheels (2017, 2018, 2019) as a CTE called **b_allyears**
@@ -78,9 +78,8 @@ group by year, month, company_name
     1. The same dataset was pulled from Question 1 SQL Query. A growth rate calculation was created on excel to create a new ‘Growth rate’ column.
 - **Excel Growth Calculation*:***
 
-![Bikeshare%20EDA%20PostgreSQL%200421ab21c12647ef9a514ff9e21844e8/Untitled%202.png](Bikeshare%20EDA%20PostgreSQL%200421ab21c12647ef9a514ff9e21844e8/Untitled%202.png)
-
-![Bikeshare%20EDA%20PostgreSQL%200421ab21c12647ef9a514ff9e21844e8/Untitled%203.png](Bikeshare%20EDA%20PostgreSQL%200421ab21c12647ef9a514ff9e21844e8/Untitled%203.png)
+![Growth](https://i.imgur.com/qPvkK4u.png)
+![Growth Table](https://i.imgur.com/tmxm4J1.png)
 
 ## Question 3: Is there a difference in growth between holiday and commuting activity?
 
