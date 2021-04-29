@@ -10,8 +10,8 @@ A bike-sharing company (DivvyBikes) requested a report on their trends and bike 
 
 ***Answer:*** The highlighted section is how many trips there was in each month from years 2017 - 2019.
 
-<a href="url"><img src="https://i.imgur.com/mtZOHVd.png" align="left" height="409" width="204" ></a>
-<a href="url"><img src="https://i.imgur.com/N3Q47VD.png" align="left" height="325" width="593" ></a>
+<a href="url"><img src="https://i.imgur.com/mtZOHVd.png" align="center" height="409" width="204" ></a>
+<a href="url"><img src="https://i.imgur.com/N3Q47VD.png" align="center" height="325" width="593" ></a>
 
 
 ***SQL Method:***
