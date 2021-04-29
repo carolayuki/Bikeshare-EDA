@@ -15,12 +15,12 @@ A bike-sharing company (DivvyBikes) requested a report on their trends and bike 
 
 
 ***SQL Method:***
-    1. Union all years for Baywheels (2017, 2018, 2019) as a CTE called **b_allyears**
-    2. Union all years for Divvybikes (2017, 2018, 2019) as a CTE called **d_allyears**
-    3. Union both CTE tables: b_allyears and d_allyears with the following columns:
-        - Select only the month and year of start_time using the Date Part function
-        - Count the bike_id to get the total number of trips
-    4. Finally, Group the NEW table by year, month and company_name.
+1. Union all years for Baywheels (2017, 2018, 2019) as a CTE called **b_allyears**
+2. Union all years for Divvybikes (2017, 2018, 2019) as a CTE called **d_allyears**
+3. Union both CTE tables: b_allyears and d_allyears with the following columns:
+	- Select only the month and year of start_time using the Date Part function
+	- Count the bike_id to get the total number of trips
+4. Finally, Group the NEW table by year, month and company_name.
 
 ***PostgreSQL Query:***
 
@@ -75,27 +75,28 @@ group by year, month, company_name
 
 ***Answer:*** The Baywheels growth rate has been predominantly positive compare to DivvyBikes.
 ***SQL Method:***
-    1. The same dataset was pulled from Question 1 SQL Query. A growth rate calculation was created on excel to create a new ‘Growth rate’ column.
-- **Excel Growth Calculation*:***
+1. The same dataset was pulled from Question 1 SQL Query. A growth rate calculation was created on excel to create a new ‘Growth rate’ column.
+
+***Excel Growth Calculation:***
 
 ![Growth](https://i.imgur.com/qPvkK4u.png)
 ![Growth Table](https://i.imgur.com/tmxm4J1.png)
 
 ## Question 3: Is there a difference in growth between holiday and commuting activity?
 
-- ***Answer:*** Yes, there's negative growth between the Christmas holiday period (Oct, Nov, Dec) and is usually back to growth after January.
-
-    **Comments:** Bay wheels had a very low start point on June 2017, which suggests that it launched around June 2017. It seems to have a study growth over the years but during the December holiday period, there's always a sudden drop, then it picks up again after January or February. On the other hand, Divvy bikes shows consistency throughout the years with huge peaks around tax season (June - August) before dropping down for Christmas Holiday season. Divvy bikes seems to be around for longer due to its consistency of usage.
+***Answer:*** Yes, there's negative growth between the Christmas holiday period (Oct, Nov, Dec) and is usually back to growth after January.
+	
+***Comments:*** Bay wheels had a very low start point on June 2017, which suggests that it launched around June 2017. It seems to have a study growth over the years but during the December holiday period, there's always a sudden drop, then it picks up again after January or February. On the other hand, Divvy bikes shows consistency throughout the years with huge peaks around tax season (June - August) before dropping down for Christmas Holiday season. Divvy bikes seems to be around for longer due to its consistency of usage.
 
 - ***SQL Method:***
-    1. Union all years for Baywheels (2017, 2018, 2019) as a CTE called **b_allyears**
-    2. Union all years for Divvybikes (2017, 2018, 2019) as a CTE called **d_allyears**
-    3. Union both CTE tables: b_allyears and d_allyears with the following columns:
-        - Select only the month and year of start_time using the Date Part function
-        - Count the bike_id to get the total number of trips
-    4. Finally, Group the NEW table by year, month and company_name.
+1. Union all years for Baywheels (2017, 2018, 2019) as a CTE called **b_allyears**
+2. Union all years for Divvybikes (2017, 2018, 2019) as a CTE called **d_allyears**
+3. Union both CTE tables: b_allyears and d_allyears with the following columns:
+	- Select only the month and year of start_time using the Date Part function
+	- Count the bike_id to get the total number of trips
+4. Finally, Group the NEW table by year, month and company_name.
 
-- ***PostgreSQL Query:***
+***PostgreSQL Query:***
 
     ```sql
     WITH
@@ -149,20 +150,20 @@ group by year, month, company_name
 
 ## Question 4: What was the longest journey? What do we know about it?
 
-- ***Answer:*** The company that has the longest journey was Bay wheels with a total of 69 Kilometres travelled. We know that this trip was performed with Bike ID 4780. It began from Montgomery St BART Station (Market St at 2nd St) and ended at Palm St at Willow St. The user was a Subscriber with Bay wheels and it took them approximately 2 hours to complete the journey.
+***Answer:*** The company that has the longest journey was Bay wheels with a total of 69 Kilometres travelled. We know that this trip was performed with Bike ID 4780. It began from Montgomery St BART Station (Market St at 2nd St) and ended at Palm St at Willow St. The user was a Subscriber with Bay wheels and it took them approximately 2 hours to complete the journey.
 
-- ***SQL Method:***
-    1. Due to the HUGE query size, I had to break it down into two different queries to lower loading time. I ran two different SQL with the same structure but for different companies (Baywheels and Divvybikes). Both of these queries are similar but different aliases.
-    2. Union all years for Baywheels (2017, 2018, 2019) as a CTE called **b_allyears**
-    3. Now I need to find out the correct coordinates for the start_station_id and end_station_id to measure the distance of the trips.
-    4. To include the data from the ‘stations’ table, I did an INNER JOIN with b_allyears and baywheels_stations on the matching key, start station id. This gave me the coordinates for the start station.
-    5. Another INNER JOIN was performed with the previous table to get the coordinates for the end_station_id. This join was matched by end station id. This concludes CTE **bay_all.**
-    6. The final query will use the new CTE table bay_all to calculate the distance between the starting and ending coordinates, and the result will become a new column ‘distance’.
-    7. To prevent the query from destroying my laptop, I limited the query to 5 rows with an order by distance desc (This will give me the important figure to answer the question: Longest Journey + more information about the trip itself (station names, time, user type).
+***SQL Method:***
+1. Due to the HUGE query size, I had to break it down into two different queries to lower loading time. I ran two different SQL with the same structure but for different companies (Baywheels and Divvybikes). Both of these queries are similar but different aliases.
+2. Union all years for Baywheels (2017, 2018, 2019) as a CTE called **b_allyears**
+3. Now I need to find out the correct coordinates for the start_station_id and end_station_id to measure the distance of the trips.
+4. To include the data from the ‘stations’ table, I did an INNER JOIN with b_allyears and baywheels_stations on the matching key, start station id. This gave me the coordinates for the start station.
+5. Another INNER JOIN was performed with the previous table to get the coordinates for the end_station_id. This join was matched by end station id. This concludes CTE **bay_all.**
+6. The final query will use the new CTE table bay_all to calculate the distance between the starting and ending coordinates, and the result will become a new column ‘distance’.
+7. To prevent the query from destroying my laptop, I limited the query to 5 rows with an order by distance desc (This will give me the important figure to answer the question: Longest Journey + more information about the trip itself (station names, time, user type).
 
-- ***PostgreSQL Query:***
+***PostgreSQL Query:***
 
-    **Bay Wheels: (Processing time: 9 mins)**
+**Bay Wheels: (Processing time: 9 mins)**
 
     ```sql
     WITH 
@@ -279,18 +280,18 @@ group by year, month, company_name
 
 ## Question 5: How often do bikes need to be relocated?
 
-- **Answer:** For the year 2019, Baywheels has an average relocation rate of 14% from all trips made throughout the year.
+**Answer:** For the year 2019, Baywheels has an average relocation rate of 14% from all trips made throughout the year.
 
     Divvy bikes has an average relocation rate of 7% from all trips made throughout the year.
 
-- **SQL method:**
-    1. Due to the HUGE query size, I had to break it down into two different queries to lower loading time. I ran two different SQL with the same structure but for different companies (Baywheels and Divvybikes). Both of these queries are similar but different aliases.
-    2. Create a CTE of three tables, one to list all the necessary columns, another to add a lag function and the third one to label every relocation as 1.
-    3. The final query is used to part the columns by year/month and do a sum on the relocation column to get the total relocation amount per month.
+**SQL method:**
+1. Due to the HUGE query size, I had to break it down into two different queries to lower loading time. I ran two different SQL with the same structure but for different companies (Baywheels and Divvybikes). Both of these queries are similar but different aliases.
+2. Create a CTE of three tables, one to list all the necessary columns, another to add a lag function and the third one to label every relocation as 1.
+3. The final query is used to part the columns by year/month and do a sum on the relocation column to get the total relocation amount per month.
 
-- ***PostgreSQL Query:***
+***PostgreSQL Query:***
 
-    **2019 Bay Wheels:**
+   **2019 Bay Wheels:**
 
     ```sql
     WITH
@@ -394,20 +395,20 @@ group by year, month, company_name
 
 ## Question 6: How far is a typical journey?
 
-- ***Answer:*** From 2017 - 2019, the typical journey for Baywheels is between 1.6km to 1.70 km. And for Divvybikes is between 1.97km to 2.16 km
+***Answer:*** From 2017 - 2019, the typical journey for Baywheels is between 1.6km to 1.70 km. And for Divvybikes is between 1.97km to 2.16 km
 
-- ***SQL Method:***
-    1. I re-structured the SQL query for Question 4 where we found the longest distance between stations. This is what I did:
-    2. To get the coordinates for both start and end station, I joined divvybikes_2019/2018/2017 with divvy_stations table (Twice).
-    3. First join was done through the start_station_id and the second with the end_station_id.
-    4. I create a CTE with the table that has the end coordinates and start coordinates.
-    5. Another CTE(d_dist) is created to calculate the distance from the previous CTE (d_no_dist).
-    6. Final query just gives me the average distance for the year 2019/2018/2017. (I ran this query separately for each year)
-    7. The same query was used for Baywheels.
+***SQL Method:***
+1. I re-structured the SQL query for Question 4 where we found the longest distance between stations. This is what I did:
+2. To get the coordinates for both start and end station, I joined divvybikes_2019/2018/2017 with divvy_stations table (Twice).
+3. First join was done through the start_station_id and the second with the end_station_id.
+4. I create a CTE with the table that has the end coordinates and start coordinates.
+5. Another CTE(d_dist) is created to calculate the distance from the previous CTE (d_no_dist).
+6. Final query just gives me the average distance for the year 2019/2018/2017. (I ran this query separately for each year)
+7. The same query was used for Baywheels.
 
-- ***PostgreSQL Query:***
+***PostgreSQL Query:***
 
-    **Divvybikes:**
+   **Divvybikes:**
 
     ```sql
     WITH
