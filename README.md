@@ -6,4 +6,4 @@ Performing an exploratory data analysis on the public datasets shared by Baywhee
 2. Excel spreadsheet showing all the data visualisation.
 3. Video of myself briefly explaning my findings.
 
-##### * This project was part of the Data Analytics Immersive course at General Asssembly. *
+##### *This project was performed by Caroline Andrade Ayuki, and it was part of the Data Analytics Immersive course at General Asssembly SYD.*
