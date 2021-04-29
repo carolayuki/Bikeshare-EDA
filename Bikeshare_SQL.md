@@ -10,8 +10,8 @@ A bike-sharing company (DivvyBikes) requested a report on their trends and bike 
 
 ***Answer:*** The highlighted section is how many trips there was in each month from years 2017 - 2019.
 
-<a href="url"><img src="https://i.imgur.com/mtZOHVd.png" align="center" height="374" width="204" ></a>
-<a href="url"><img src="https://i.imgur.com/N3Q47VD.png" align="center" height="325" width="593" ></a>
+<a href="url"><img src="https://i.imgur.com/mtZOHVd.png" align="center" height="428.5" width="251.5" ></a>
+<a href="url"><img src="https://i.imgur.com/N3Q47VD.png" align="center" height="295.6" width="539.3" ></a>
 
 
 ***SQL Method:***
@@ -79,8 +79,8 @@ group by year, month, company_name
 
 ***Excel Growth Calculation:***
 
-<a href="url"><img src="https://i.imgur.com/tmxm4J1.png" align="center" height="374" width="204" ></a>
-<a href="url"><img src="https://i.imgur.com/qPvkK4u.png" align="center" height="325" width="593" ></a>
+<a href="url"><img src="https://i.imgur.com/tmxm4J1.png" align="center" height="423.3" width="269" ></a>
+<a href="url"><img src="https://i.imgur.com/qPvkK4u.png" align="center" height="278" width="520.3" ></a>
 
 
 ## Question 3: Is there a difference in growth between holiday and commuting activity?
