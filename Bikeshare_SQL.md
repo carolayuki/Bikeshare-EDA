@@ -434,7 +434,7 @@ group by year, month, company_name
     					INNER JOIN divvy_stations as d_station
     					ON d.start_station_id = d_station.id ) as d_start
     						
-    																			INNER JOIN divvy_stations as d_stations_2
+    						INNER JOIN divvy_stations as d_stations_2
     						ON d_start.end_station_id = d_stations_2.id),
     														
     d_dist as 
@@ -474,7 +474,7 @@ group by year, month, company_name
     				INNER JOIN baywheels_stations as b_station
     				ON b.start_station_id = b_station.id ) as b_start
     						
-    																		INNER JOIN baywheels_stations as b_stations_2
+    					INNER JOIN baywheels_stations as b_stations_2
     					ON b_start.end_station_id = b_stations_2.id),
     																								
 
