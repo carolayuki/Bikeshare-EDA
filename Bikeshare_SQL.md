@@ -238,7 +238,7 @@ group by year, month, company_name
     LIMIT 5
     ```
 
-    **Divvy Bikes: (Processing time: 40 mins)**
+   **Divvy Bikes: (Processing time: 40 mins)**
 
     ```sql
     SELECT 
@@ -344,7 +344,7 @@ group by year, month, company_name
     group by year, month
     ```
 
-    **2019 Divvybikes:**
+   **2019 Divvybikes:**
 
     ```sql
     WITH
@@ -450,7 +450,7 @@ group by year, month, company_name
     	group by company_name;
     ```
 
-    **Baywheels:**
+   **Baywheels:**
 
     ```sql
     WITH
